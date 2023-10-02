@@ -7,6 +7,7 @@ import { getProducts, getProductById } from "../controllers/productController.js
 //@desc Fetch all products
 router.get('/', getProducts);
 
+//@desc Fetch a product
 router.get('/:id', getProductById);
 
 export default router;
