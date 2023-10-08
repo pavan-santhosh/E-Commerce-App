@@ -7,9 +7,40 @@ export const productApiSlice = apiSlice.injectEndpoints({
             query: () => ({
                 url: PRODUCTS_URL,
             }),
-            keepUnusedDataFor: 5  //    5 seconds in cache
+            keepUnusedDataFor: 5,  //    5 seconds in cache
+        }),
+        getProductDetails: builder.query({
+            query: (productId) => ({
+                url: `${PRODUCTS_URL}/${productId}`,
+            }),
+            keepUnusedDataFor: 5
         }),
     }),
 });
 
-export const {useGetProductsQuery} = productApiSlice;
+export const {useGetProductsQuery, useGetProductDetailsQuery} = productApiSlice;
+
+
+/*
+import { PRODUCTS_URL } from '../constants';
+import { apiSlice } from './apiSlice';
+
+export const productSlice = apiSlice.injectEndpoints({
+  endpoints: (builder) => ({
+    getProducts: builder.query({
+      query: () => ({
+        url: PRODUCTS_URL,
+      }),
+      keepUnusedDataFor: 5,
+    }),
+    getProductDetails: builder.query({
+      query: (productId) => ({
+        url: `${PRODUCTS_URL}/${productId}`,
+      }),
+      keepUnusedDataFor: 5,
+    }),
+  }),
+});
+
+export const { useGetProductsQuery, useGetProductDetailsQuery } = productSlice;
+*/
