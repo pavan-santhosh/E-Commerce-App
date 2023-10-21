@@ -17,7 +17,7 @@ const Product = ({product}) => {
             </Link>
             <Card.Text as = "div"><Rating value = {product.rating} text = {` ${product.numReviews} reviews`}/></Card.Text>
             <Card.Text as = "div">
-                Rs. {Math.ceil(product.price*80)}
+            <span style={{fontWeight:"bold"}}>₹ {Math.ceil(product.price)}</span>
             </Card.Text>
         </Card.Body>
     </Card>
