@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv"
+import cookieParser from "cookie-parser";
 dotenv.config();
 import productRoutes from "./routes/productRoutes.js"
 import userRoutes from './routes/userRoutes.js';
@@ -18,6 +19,9 @@ app.use(express.urlencoded({extended:true}));
 app.get('/',(req,res)=>{
     res.send("App is running...");
 })
+
+//Cookie Parser Middleware
+app.use(cookieParser());
 
 app.use("/api/products",productRoutes);
 app.use('/api/users',userRoutes);
